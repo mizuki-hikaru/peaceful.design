@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>peaceful.design</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://modestanalytics.com/embed.js" data-token="E9aeS_2DCskbR5yLyu17Sw"></script>
+</head>
+<body>
+  <main>
+    <header class="site-header">
+      <h1 class="cross-header">peaceful.design</h1>
+    </header>
+
+    <section class="about">
+      <h2>About Me</h2>
+      <p>I craft digital experiences that emphasize simplicity and mindfulness.
+      With a background in web design and development, I specialize in bringing
+      structure and craftsmanship to every project.</p>
+    </section>
+
+    <section class="projects">
+      <h2>Projects</h2>
+
+      <div class="project">
+        <div class="image-container">
+          <img src="project1.png" alt="Photography Website Screenshot" />
+        </div>
+        <div class="project-info">
+          <h3>A Minimalist Portfolio for a Photographer</h3>
+          <p>
+            A sleek, responsive website designed to showcase my sister’s
+            photography with simplicity and elegance. Built using HTML, CSS,
+            and vanilla JavaScript, the site emphasizes clean layouts, subtle
+            interactions, and full-screen modal views for each image. Optimized
+            for mobile and desktop, it reflects the clarity and calm at the
+            heart of peaceful.design.
+          </p>
+          <a href="https://ruby.photography#" class="btn">Live</a>
+          <a href="https://github.com/mizuki-hikaru/ruby.photography" class="btn">Code</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="image-container">
+          <img src="project2.png" alt="Contact Form Website Screenshot" />
+        </div>
+        <div class="project-info">
+          <h3>FormFlow - Effortless Contact Forms</h3>
+          <p>
+            I brought this service down because nobody was using it, but the
+            general idea was that a user would sign up with their email, and
+            then they would be presented with a HTML form they could add to
+            their website. The form would submit to my backend which would then
+            forward the request to their email address. The design aspect was
+            the CSS for the form, which had to look suitable to drop into any
+            website.
+          </p>
+          <a href="https://github.com/mizuki-hikaru/formflow" class="btn">Code</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Contact</h2>
+      <p>
+        Reach out via email (<a id="email" href="#"></a>) or
+        <a href="https://www.linkedin.com/in/mizukihikaru/">LinkedIn</a>.
+      </p>
+      <script>
+        const user = 'mizuki';
+        const host = 'hikaru.org';
+        document.getElementById("email").href = `mailto:${user}@${host}`;
+        document.getElementById("email").textContent = `${user}@${host}`;
+      </script>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="imageModal">
+    <span class="modal-close" id="modalClose">&times;</span>
+    <img id="modalImage" src="" alt="Full view" />
+  </div>
+
+  <script>
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.getElementById('modalClose');
+
+    document.querySelectorAll('.image-container img').forEach(img => {
+      img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modal.classList.add('show');
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('show');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>
